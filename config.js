@@ -3,5 +3,5 @@
 //   server: 'wss://stack-mp.onrender.com'
 // (Use wss:// and your own Render address. Keep the quotes and the comma.)
 window.STACK_CONFIG = {
-  server: ''
+  server: 'wss://stack-mp-server.onrender.com'
 };
