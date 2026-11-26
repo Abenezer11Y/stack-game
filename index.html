@@ -426,7 +426,7 @@ function spawn(bonus){
 }
 let puKey='';
 function renderPU(act){const el=$('pu');el.innerHTML=act.map(a=>`<div class="pa"><canvas width="72" height="72" data-k="${a[0]}"></canvas>${a[1]?`<i>${a[1]}</i>`:''}</div>`).join('');
-  if(!list.length&&mode==='ev'&&evRun){const miss=evRun.ev.rewards.filter(r=>!(r.skin?S.skins.includes(r.skin):S.bgs.includes(r.bg)));if(miss.length){const lo=Math.min(...miss.map(r=>r.minScore));el.innerHTML='<div class="desc">'+(score<lo?'Reach score '+lo+' to start winning prizes.':'No prize this time. Keep going!')+'</div>'}}
+  if(!act.length&&mode==='ev'&&evRun){const miss=evRun.ev.rewards.filter(r=>!(r.skin?S.skins.includes(r.skin):S.bgs.includes(r.bg)));if(miss.length){const lo=Math.min(...miss.map(r=>r.minScore));el.innerHTML='<div class="desc">'+(score<lo?'Reach score '+lo+' to start winning prizes.':'No prize this time. Keep going!')+'</div>'}}
   el.querySelectorAll('canvas').forEach(c=>drawOrb(36,36,PUS.find(x=>x.k===c.dataset.k),c.getContext('2d'),1.6))}
 function hud(){const act=[];if(pu.slow>0)act.push(['slow',pu.slow]);if(cur&&cur.auto)act.push(['auto',0]);if(cur&&cur.isWide)act.push(['wide',0]);if(pu.shield>0)act.push(['shield',0]);if(pu.coin>0)act.push(['coin',pu.coin]);
   const key=act.map(a=>a.join(':')).join(',');if(key!==puKey){puKey=key;renderPU(act)}{const se=$('score');if(se.textContent!=score){se.textContent=score;if(!RM){se.classList.remove('pop');void se.offsetWidth;se.classList.add('pop')}}}$('run').innerHTML=runCoins?ic('coin')+' +'+runCoins:'';if(runCoins!==lastRC){lastRC=runCoins;if(!RM&&runCoins){const re=$('run');re.classList.remove('pop');void re.offsetWidth;re.classList.add('pop')}}}
